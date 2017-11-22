@@ -10,6 +10,37 @@ import "."
  * - CREATE_PROJECT: Create a project with specified mesh and link it with the integration
  * - OPEN_PROJECT: Open an existing project and link it with the integration
  * - SEND_PROJECT_INFO: Send back info on the current project (project url and integration link identifier)
+ *
+ * For CREATE_PROJECT and OPEN_PROJECT, we receive a bag of information containing all the configuration
+ * allowing to link a project:
+ * {
+ *     applicationName: "", // External application name
+ *     workspacePath: "",   // Workspace path (the workspace of the external application)
+ *     exportPath: "",      // Relative path in the workspace in which we want to export textures
+ *     materials: {         // List of linked materials
+ *         "my_application_material_name": {
+ *             assetPath: "",      // External application material ID
+ *             exportPreset: "",   // Name or url of the export preset to use
+ *             resourceShader: "", // Name or url of the Substance Painter shader to render the material
+ *             spToUnityProperties: {
+ *                 // Association between Substance Painter exported textures and application textures
+ *                 // "texture name as define in the SP template" => "external application ID"
+ *                 // Example:
+ *                 "$mesh_$textureSet_baseColor": "basecolor_texture_sampler_in_my_shader",
+ *                 "...": "..."
+ *             }
+ *         },
+ *         "...", {...}
+ *     }
+ *     project:
+ *     {
+ *         meshUrl: "",  // Mesh to use for the new project
+ *         normal: "",   // Normal format to use (OpenGL/DirectX)
+ *         template: "", // Template url or name to use
+ *         url: ""       // Substance Painter project location
+ *     },
+ *     linkIdentifier: "" // Identifier that will be serialized with the project to allow reconnection
+ * }
  */
 PainterPlugin {
   id: root
