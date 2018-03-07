@@ -10,18 +10,15 @@ AlgWindow {
   visible: false
   minimumWidth: 300
   maximumWidth: minimumWidth
-  minimumHeight: 150
+  minimumHeight: 170
   maximumHeight: minimumHeight
-
-  Component.onCompleted: {
-    flags = flags | Qt.WindowStaysOnTopHint;
-  }
 
   property int linkQuickInterval: 300 /*ms*/
   property int linkDegradedResolution: 1024
   property int linkHQTreshold: 2048
   property int linkHQInterval: 4000 /*ms*/
   property int initDelayOnProjectCreation: 5000 /*ms*/
+  property bool enableAutoLink: stream.checked
   readonly property string settingsKeyPrefix: "live_link"
 
   GridLayout {
@@ -69,6 +66,13 @@ AlgWindow {
       // Set default resolution/index
       function log2(n) { return Math.log(n) / Math.log(2); }
       component.currentIndex = log2(defaultValue) - log2(component.minResolution);
+    }
+
+    AlgCheckBox {
+      id: stream
+      text: "Enable streaming"
+      checked: true
+      height: 16
     }
 
     AlgSlider {

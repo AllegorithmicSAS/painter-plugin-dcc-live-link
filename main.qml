@@ -54,10 +54,8 @@ PainterPlugin {
   property bool isLinked: false
   property var liveLinkConfig: null
   property var sendMapsButton: null
-  property var autoLinkButton: null
   readonly property string linkIdentifierKey: "live_link_identifier"
-  readonly property bool enableAutoLink: autoLinkButton != null ?
-    autoLinkButton.enableAutoLink : false
+  readonly property bool enableAutoLink: settings.enableAutoLink
 
   state: "disconnected"
   states: [
@@ -76,19 +74,22 @@ PainterPlugin {
   ]
 
   Component.onCompleted: {
-    sendMapsButton = alg.ui.addToolBarWidget("ButtonSendMaps.qml");
+    sendMapsButton = alg.ui.addWidgetToPluginToolBar("ButtonSendMaps.qml");
     sendMapsButton.clicked.connect(sendMaps);
     sendMapsButton.enabled = Qt.binding(function() { return root.isLinked; });
-
-    autoLinkButton = alg.ui.addToolBarWidget("ButtonAutoLink.qml");
-    autoLinkButton.enabled = Qt.binding(function() { return root.isLinked; });
   }
 
-  onConfigure: settings.visible = true;
+  onConfigure:
+  {
+    settings.open();
+  }
 
   onEnableAutoLinkChanged: {
     if (enableAutoLink) {
       autoLink();
+    }
+    if (sendMapsButton) {
+      sendMapsButton.enableAutoLink = enableAutoLink
     }
   }
 
