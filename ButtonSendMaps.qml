@@ -16,13 +16,14 @@ Button {
 
   style: ButtonStyle {
     background: Rectangle {
-        anchors.fill: root
+        implicitWidth: root.width
+        implicitHeight: root.height
         color: root.hovered ?
           "#262626" :
           "transparent"
     }
   }
-  
+
   Image {
     anchors.fill: parent
     antialiasing: true
