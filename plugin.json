@@ -1,7 +1,7 @@
 {
 	"description": "Link a supported game engine asset to a Substance Painter project",
 	"url": "https://www.allegorithmic.com",
-	"version": "1.1.1",
-	"min_api_version":  "1.1.0",
+	"version": "1.1.2",
+	"min_api_version":  "1.1.1",
 	"license": "<a href=\"https://www.allegorithmic.com/legal\">Allegorithmic</a>"
 }
