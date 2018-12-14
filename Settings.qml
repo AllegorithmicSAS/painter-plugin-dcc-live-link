@@ -1,4 +1,5 @@
-import AlgWidgets 1.0
+import AlgWidgets 2.0
+import AlgWidgets.Style 2.0
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import Painter 1.0
@@ -10,7 +11,7 @@ AlgWindow {
   visible: false
   minimumWidth: 300
   maximumWidth: minimumWidth
-  minimumHeight: 170
+  minimumHeight: layout.height + 2 * layout.margins
   maximumHeight: minimumHeight
 
   property int linkQuickInterval: 300 /*ms*/
@@ -23,8 +24,12 @@ AlgWindow {
 
   GridLayout {
     id: layout
-    anchors.fill: parent
-    anchors.margins: 10
+    readonly property int margins: 10
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.margins: margins
+    rowSpacing: AlgStyle.defaultSpacing
 
     columns: 2
 
