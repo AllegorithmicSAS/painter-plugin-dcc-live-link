@@ -7,7 +7,7 @@ import Painter 1.0
 AlgWindow {
   id: root
 
-  title: "Live Link configuration"
+  title: qsTr("Live Link configuration")
   visible: false
   minimumWidth: 300
   maximumWidth: minimumWidth
@@ -75,7 +75,7 @@ AlgWindow {
 
     AlgCheckBox {
       id: stream
-      text: "Enable streaming"
+      text: qsTr("Enable streaming")
       checked: true
       height: 16
     }
@@ -87,7 +87,7 @@ AlgWindow {
       stepSize: 1000
       minValue: 1000
       maxValue: 10000
-      text: "Delay on project creation (ms)"
+      text: qsTr("Delay on project creation (ms)")
       Component.onCompleted: parent.initSlider(this, "initDelayOnProjectCreation");
     }
 
@@ -98,11 +98,11 @@ AlgWindow {
       stepSize: 50
       minValue: 50
       maxValue: 2000
-      text: "Standard maps transfer delay (ms)"
+      text: qsTr("Standard maps transfer delay (ms)")
       Component.onCompleted: parent.initSlider(this, "linkQuickInterval");
     }
 
-    AlgLabel {text: "Degraded preview treshold"}
+    AlgLabel {text: qsTr("Degraded preview treshold")}
     AlgComboBox {
       Layout.fillWidth: true
       property int minResolution: 1024
@@ -112,7 +112,7 @@ AlgWindow {
       model: ListModel {}
     }
 
-    AlgLabel {text: "Degraded preview resolution"}
+    AlgLabel {text: qsTr("Degraded preview resolution")}
     AlgComboBox {
       Layout.fillWidth: true
       property int minResolution: 256
@@ -129,7 +129,7 @@ AlgWindow {
       stepSize: 50
       minValue: 100
       maxValue: 5000
-      text: "HQ maps transfer delay (ms)"
+      text: qsTr("HQ maps transfer delay (ms)")
       Component.onCompleted: parent.initSlider(this, "linkHQInterval");
     }
   }
