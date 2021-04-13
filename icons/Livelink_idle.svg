@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><title>Livelink_idle</title><g id="Layer_2" data-name="Layer 2"><g id="New_Icons" data-name="New Icons"><g id="Livelink_idle"><g id="effects_substance"><polygon id="effects_substance-2" data-name="effects_substance" points="3 5.11 8 2.23 13 5.11 13 7.73 10.69 6.99 10.69 6.45 8.01 4.9 6.03 6.04 13 8.28 13 10.89 8 13.77 3 10.89 3 8.28 5.32 9.01 5.32 9.55 8.01 11.11 10.02 9.94 3 7.73 3 5.11" style="fill:#ccc"/><rect width="16" height="16" style="fill:none"/></g></g></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <polygon points="2 7 9 14 2.001 13.999 2 7" style="fill: #ccc"/>
+  <polygon points="7 2 14 9 13.999 2.001 7 2" style="fill: #ccc"/>
+  <polygon points="8 6 8 6.939 9.061 8 10 8 10 6 8 6" style="fill: #ccc"/>
+  <polygon points="6.939 8 6 8 6 10 8 10 8 9.061 6.939 8" style="fill: #ccc"/>
+</svg>
