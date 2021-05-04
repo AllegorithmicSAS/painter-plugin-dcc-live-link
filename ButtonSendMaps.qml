@@ -2,26 +2,36 @@ import AlgWidgets.Style 2.0
 import AlgWidgets 2.0
 import QtQuick 2.7
 
-AlgToolBarButton {
+Item {
   id: root
-  tooltip: "Send all materials to Integration"
-  iconName: enabled ? (clientName == "Unreal4" ? "icons/Unreal_idle.svg" : "icons/Unity_idle.svg") : "icons/Livelink_idle.svg"
+  width: button.width
+  height: button.height
 
-  property bool enableAutoLink: true
+  AlgToolBarButton {
+    id: button
+    enabled: false
+    iconName: enabled ? (clientName == "Unreal4" ? "icons/Unreal_idle.svg" : "icons/Unity_idle.svg") : "icons/Livelink_idle.svg"
 
-  property string clientName: ""
+    property bool enableAutoLink: true
 
-  Rectangle {
-    id: autoLinkButton
-    height: 5
-    width: height
-    x: 2
-    y: 2
+    property string clientName: ""
 
-    radius: width
+    Rectangle {
+      id: autoLinkButton
+      height: 5
+      width: height
+      x: 2
+      y: 2
 
-    visible: root.enabled
-    color: root.enableAutoLink? "#2FB29C" : "#EF4E35"
+      radius: width
+
+      visible: button.enabled
+      color: button.enableAutoLink? "#2FB29C" : "#EF4E35"
+    }
   }
 
+  AlgToolTipArea {
+    anchors.fill: root
+    tooltip: button.enabled ? "Send all materials to Integration." : "Live Link is enabled when you send an asset from a game engine to Painter."
+  }
 }
