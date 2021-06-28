@@ -41,7 +41,7 @@ Item {
     listen: true
     port: 6404
     property var currentWebSocket: null
-    name: "Substance Painter"
+    name: "Substance 3D Painter"
     accept: !root.connected // Ensure only one connection at a time
 
     onClientConnected: {

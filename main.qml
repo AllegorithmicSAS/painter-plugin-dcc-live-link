@@ -3,7 +3,7 @@ import QtWebSockets 1.0
 import Painter 1.0
 import "."
 
-/* Allows to link Substance Painter with an external program by using a persistent connection between both programs
+/* Allows to link Substance 3D Painter with an external program by using a persistent connection between both programs
  *
  * The connection is based on a WebSocket connection with a simple command protocol: "[COMMAND KEY] [JSON DATA]"
  * List of commands to which this plugin is able to answer:
@@ -21,9 +21,9 @@ import "."
  *         "my_application_material_name": {
  *             assetPath: "",      // External application material ID
  *             exportPreset: "",   // Name or url of the export preset to use
- *             resourceShader: "", // Name or url of the Substance Painter shader to render the material
+ *             resourceShader: "", // Name or url of the Substance 3D Painter shader to render the material
  *             spToUnityProperties: {
- *                 // Association between Substance Painter exported textures and application textures
+ *                 // Association between Substance 3D Painter exported textures and application textures
  *                 // "texture name as define in the SP template" => "external application ID"
  *                 // Example:
  *                 "$mesh_$textureSet_baseColor": "basecolor_texture_sampler_in_my_shader",
@@ -37,7 +37,7 @@ import "."
  *         meshUrl: "",  // Mesh to use for the new project
  *         normal: "",   // Normal format to use (OpenGL/DirectX)
  *         template: "", // Template url or name to use
- *         url: ""       // Substance Painter project location
+ *         url: ""       // Substance 3D Painter project location
  *     },
  *     linkIdentifier: "" // Identifier that will be serialized with the project to allow reconnection
  * }
@@ -304,7 +304,7 @@ PainterPlugin {
       normalMapFormat: root.liveLinkConfig.project.normal
     });
 
-    // HACK: Painter is not synchronous when creating a project
+    // HACK: Substance 3D Painter is not synchronous when creating a project
     setTimeout(function(projectUrl) {
       return function() {
         initSynchronization();
